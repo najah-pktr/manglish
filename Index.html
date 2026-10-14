@@ -6,18 +6,18 @@
     <!-- Hosted on Netlify. Build your own: https://netlify.new/ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Notato Malayalam – Minimalist Malayalam Manglish Editor & Dual Translation Studio</title>
-    <meta name="description" content="Notato Malayalam is a free, privacy-first bilingual writing studio. Type phonetically in Manglish to get instant Malayalam script with smart suggestions, dual-canvas translation view (now with PDF attachment), text-to-speech, and zero-distraction zen layout.">
-    <meta name="keywords" content="manglish typing, malayalam typing online, manglish to malayalam transliteration, malayalam writing tool, transliteration keyboard, bilingual writer, subtitle editor malayalam, notato, online malayalam notepad, manglish, najah pktr, mohamed najah pookkottur, pdf annotate, dual canvas">
+    <meta name="description" content="Notato Malayalam is a free, privacy-first bilingual writing studio. Type phonetically in Manglish to get instant Malayalam script with smart suggestions, dual-canvas translation view with full-screen PDF reader, text-to-speech, and zero-distraction zen layout.">
+    <meta name="keywords" content="manglish typing, malayalam typing online, manglish to malayalam transliteration, malayalam writing tool, transliteration keyboard, bilingual writer, subtitle editor malayalam, notato, online malayalam notepad, manglish, najah pktr, mohamed najah pookkottur, pdf reader, dual canvas pdf">
     <meta name="author" content="Mohamed Najah & Notato Malayalam Contributors">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://notatomlm.netlify.app/">
     <meta name="google-site-verification" content="uEg6bJ4VPQSPFz2FUj3eEiAdUweiDnOihAQ6zD1h6NI" />
 
-    <!-- Open Graph / Facebook / LinkedIn -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://notatomlm.netlify.app/">
     <meta property="og:title" content="Notato Malayalam – Minimalist Malayalam Writing & Translation Studio">
-    <meta property="og:description" content="Fast, distraction-free Manglish-to-Malayalam note taking with instant phonetic suggestions, dual translation canvas (PDF attach), and voice synthesis.">
+    <meta property="og:description" content="Fast, distraction-free Manglish-to-Malayalam note taking with instant phonetic suggestions, dual translation canvas with full PDF reader, and voice synthesis.">
     <meta property="og:site_name" content="Notato Malayalam">
     <meta property="og:image" content="https://notatomlm.netlify.app/og-preview.png">
     <meta property="og:image:width" content="1200">
@@ -27,35 +27,26 @@
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Notato Malayalam – Minimalist Malayalam Manglish Studio">
-    <meta name="twitter:description" content="Type in Manglish, write in Malayalam. Free, instant, and clean dual-canvas editor with PDF support.">
+    <meta name="twitter:description" content="Type in Manglish, write in Malayalam. Free, instant, dual-canvas editor with full PDF reader.">
     <meta name="twitter:image" content="https://notatomlm.netlify.app/og-preview.png">
     <meta name="twitter:site" content="@notato_ml">
 
-    <!-- Schema.org for WebApplication + SoftwareApplication -->
+    <!-- Schema.org -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Notato Malayalam",
       "url": "https://notatomlm.netlify.app/",
-      "description": "Distraction-free bilingual typing studio converting Manglish input to Malayalam script with real-time suggestions, audio synthesis, and PDF attachment support.",
+      "description": "Distraction-free bilingual typing studio converting Manglish input to Malayalam script with real-time suggestions, audio synthesis, and a full-panel PDF reader for reference documents.",
       "applicationCategory": "ProductivityApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript. Works on all modern browsers.",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "INR"
-      },
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "4.8",
-        "ratingCount": "124"
-      },
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.8", "ratingCount": "124" },
       "featureList": [
         "Manglish to Malayalam transliteration",
-        "Dual translation canvas",
-        "PDF attachment in split view",
+        "Dual translation canvas with full PDF reader",
         "Text-to-speech",
         "Voice dictation",
         "Dark mode",
@@ -64,12 +55,9 @@
     }
     </script>
 
-    <!-- Preconnect and Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Bootstrap & Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -86,7 +74,7 @@
             --border-divider: #f0f2f5;
             --danger: #d93025;
             --success: #1e8e3e;
-            --pdf-bg: #f8f9fa;
+            --pdf-surface: #f6f8fa;
         }
 
         [data-theme="dark"] {
@@ -99,7 +87,7 @@
             --text-secondary: #8b949e;
             --border-subtle: #21262d;
             --border-divider: #161b22;
-            --pdf-bg: #161b22;
+            --pdf-surface: #161b22;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -117,7 +105,7 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* --- Header Navigation --- */
+        /* --- Header --- */
         .app-header {
             background: var(--panel-bg);
             border-bottom: 1px solid var(--border-subtle);
@@ -243,7 +231,7 @@
         .icon-btn:hover { background: var(--brand-subtle); color: var(--brand); }
         .icon-btn.active { background: var(--brand-subtle); color: var(--brand); }
 
-        /* Horizontally Scrollable Format Bar on Mobile */
+        /* Format ribbon */
         .format-ribbon {
             padding: 6px 16px;
             background: var(--panel-bg);
@@ -272,9 +260,12 @@
             font-size: 0.84rem;
             transition: background 0.12s, color 0.12s;
             flex-shrink: 0;
+            gap: 4px;
+            padding: 0 8px;
         }
 
         .fmt-btn:hover { background: var(--brand-subtle); color: var(--brand); }
+        .fmt-btn.active { background: var(--brand-subtle); color: var(--brand); }
 
         .fmt-divider {
             width: 1px;
@@ -284,7 +275,7 @@
             flex-shrink: 0;
         }
 
-        /* Responsive Floating Suggestion Ribbon */
+        /* Suggestions */
         .sugg-float-bar {
             position: fixed;
             top: 92px;
@@ -326,7 +317,7 @@
             transform: scale(1.03);
         }
 
-        /* --- Workspace & Canvas --- */
+        /* Workspace */
         .viewport-scroll {
             flex: 1;
             overflow-y: auto;
@@ -345,7 +336,7 @@
         }
 
         .viewport-scroll.split-on .canvas-assembly {
-            max-width: 1380px;
+            max-width: 1480px;
             gap: 36px;
         }
 
@@ -353,11 +344,10 @@
             flex: 1;
             background: transparent;
             border: none;
-            border-radius: 0;
-            box-shadow: none;
             display: flex;
             flex-direction: column;
             min-height: 80vh;
+            min-width: 0;
         }
 
         .doc-page-header {
@@ -372,6 +362,15 @@
             color: var(--text-secondary);
             text-transform: uppercase;
             letter-spacing: 0.06em;
+            flex-shrink: 0;
+        }
+
+        .doc-page-body {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            position: relative;
         }
 
         .editable-surface {
@@ -402,117 +401,184 @@
         .editable-surface h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; }
         .editable-surface blockquote { border-left: 3px solid var(--brand); padding-left: 1rem; color: var(--text-secondary); font-style: italic; margin: 1rem 0; }
 
-        /* PDF Attachment Panel */
-        .pdf-attachment-panel {
-            margin-top: 18px;
-            border: 1px dashed var(--border-subtle);
-            border-radius: 10px;
-            padding: 16px;
-            background: var(--pdf-bg);
-            display: flex;
+        /* ============================================
+           PDF CANVAS (full-panel source replacement)
+           ============================================ */
+        .pdf-canvas {
+            position: absolute;
+            inset: 0;
+            display: none;
             flex-direction: column;
-            gap: 10px;
-            transition: border-color 0.2s;
-        }
-        .pdf-attachment-panel:hover {
-            border-color: var(--brand);
-        }
-        .pdf-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--text-secondary);
-            text-transform: uppercase;
-            letter-spacing: 0.04em;
-        }
-        .pdf-list {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-        .pdf-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            background: var(--panel-bg);
+            background: var(--pdf-surface);
+            border-radius: 12px;
             border: 1px solid var(--border-subtle);
-            border-radius: 8px;
-            padding: 8px 12px;
-            font-size: 0.85rem;
-            transition: background 0.15s;
+            overflow: hidden;
         }
-        .pdf-item:hover {
-            background: var(--brand-subtle);
-        }
-        .pdf-item .pdf-name {
+
+        .pdf-canvas.active { display: flex; }
+
+        .pdf-toolbar {
             display: flex;
             align-items: center;
             gap: 8px;
+            padding: 10px 14px;
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--panel-bg);
+            flex-shrink: 0;
+            flex-wrap: wrap;
+        }
+
+        .pdf-toolbar .pdf-file-name {
+            font-size: 0.82rem;
+            font-weight: 600;
             color: var(--text-primary);
-            font-weight: 500;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            max-width: 70%;
-        }
-        .pdf-item .pdf-actions {
             display: flex;
-            gap: 4px;
-        }
-        .pdf-item .pdf-actions button {
-            background: transparent;
-            border: none;
-            color: var(--text-secondary);
-            cursor: pointer;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-        .pdf-item .pdf-actions button:hover {
-            background: var(--brand-subtle);
-            color: var(--brand);
-        }
-        .pdf-upload-label {
-            display: inline-flex;
             align-items: center;
             gap: 8px;
-            background: var(--brand-subtle);
-            color: var(--brand);
-            padding: 6px 14px;
-            border-radius: 20px;
-            font-size: 0.8rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            flex: 1;
+            min-width: 0;
+        }
+
+        .pdf-toolbar .pdf-file-name i { color: var(--danger); flex-shrink: 0; }
+
+        .pdf-toolbar .pdf-tool-btn {
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            color: var(--text-secondary);
+            border-radius: 6px;
+            padding: 5px 10px;
+            font-size: 0.76rem;
             font-weight: 600;
             cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 5px;
             transition: all 0.15s;
-            width: fit-content;
+            font-family: 'Google Sans', sans-serif;
+            flex-shrink: 0;
         }
-        .pdf-upload-label:hover {
-            background: var(--brand);
-            color: #fff;
-        }
-        .pdf-upload-label input {
-            display: none;
-        }
-        .pdf-frame-container {
-            margin-top: 8px;
-            border-radius: 8px;
+
+        .pdf-toolbar .pdf-tool-btn:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-subtle); }
+        .pdf-toolbar .pdf-tool-btn.danger:hover { border-color: var(--danger); color: var(--danger); background: rgba(217,48,37,0.08); }
+
+        .pdf-body {
+            flex: 1;
+            position: relative;
             overflow: hidden;
-            border: 1px solid var(--border-subtle);
-            background: var(--panel-bg);
-            height: 260px;
-            display: none;
+            min-height: 0;
         }
-        .pdf-frame-container iframe {
+
+        .pdf-body iframe {
             width: 100%;
             height: 100%;
             border: none;
-        }
-        .pdf-frame-container.active {
             display: block;
+            background: #525659;
         }
 
+        /* Empty / drop zone */
+        .pdf-dropzone {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            padding: 30px;
+            text-align: center;
+            transition: background 0.2s;
+        }
+
+        .pdf-dropzone.dragover {
+            background: var(--brand-subtle);
+        }
+
+        .pdf-dropzone .dz-icon {
+            width: 68px;
+            height: 68px;
+            border-radius: 50%;
+            background: var(--brand-subtle);
+            color: var(--brand);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.7rem;
+        }
+
+        .pdf-dropzone h4 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .pdf-dropzone p {
+            font-size: 0.84rem;
+            color: var(--text-secondary);
+            max-width: 320px;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        .pdf-dropzone .dz-btn {
+            background: var(--brand);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 9px 20px;
+            font-size: 0.86rem;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.15s;
+            font-family: 'Google Sans', sans-serif;
+        }
+
+        .pdf-dropzone .dz-btn:hover { opacity: 0.9; }
+
+        /* Thumbnail strip for multiple PDFs */
+        .pdf-thumbs {
+            display: none;
+            gap: 6px;
+            padding: 8px 14px;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--panel-bg);
+            overflow-x: auto;
+            scrollbar-width: thin;
+            flex-shrink: 0;
+        }
+
+        .pdf-thumbs.visible { display: flex; }
+
+        .pdf-thumb {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            padding: 5px 10px;
+            border-radius: 6px;
+            border: 1px solid var(--border-subtle);
+            background: var(--pdf-surface);
+            font-size: 0.74rem;
+            font-weight: 500;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: all 0.15s;
+            flex-shrink: 0;
+            max-width: 180px;
+        }
+
+        .pdf-thumb:hover { border-color: var(--brand); }
+        .pdf-thumb.active { border-color: var(--brand); background: var(--brand-subtle); color: var(--brand); }
+
+        .pdf-thumb i { color: var(--danger); flex-shrink: 0; }
+        .pdf-thumb span { overflow: hidden; text-overflow: ellipsis; }
+
+        /* Modal */
         .modal-content {
             background: var(--panel-bg);
             color: var(--text-primary);
@@ -554,7 +620,7 @@
 
         .d-none { display: none !important; }
 
-        /* --- Mobile Breakpoint Optimizations (Max 768px) --- */
+        /* Mobile */
         @media (max-width: 768px) {
             .primary-nav {
                 padding: 8px 12px;
@@ -596,11 +662,8 @@
                 padding: 16px 14px 90px;
             }
 
-            .canvas-assembly {
-                gap: 24px;
-            }
+            .canvas-assembly { gap: 24px; }
 
-            /* Stack Dual View Vertically on Mobile */
             .viewport-scroll.split-on .canvas-assembly {
                 flex-direction: column;
                 gap: 32px;
@@ -619,9 +682,10 @@
                 gap: 8px;
             }
 
-            .pdf-frame-container {
-                height: 180px;
-            }
+            .pdf-toolbar { padding: 8px 10px; gap: 6px; }
+            .pdf-toolbar .pdf-tool-btn { padding: 4px 8px; font-size: 0.72rem; }
+
+            .doc-page { min-height: 70vh; }
         }
     </style>
 </head>
@@ -698,6 +762,13 @@
 
             <div class="fmt-divider"></div>
 
+            <!-- NEW: PDF button in ribbon -->
+            <button class="fmt-btn" type="button" id="pdf-ribbon-btn" onclick="togglePdfCanvas()" title="Open PDF Reader (Reference Document)">
+                <i class="fas fa-file-pdf"></i> <span style="font-size:0.78rem; font-weight:600;">PDF</span>
+            </button>
+
+            <div class="fmt-divider"></div>
+
             <button class="fmt-btn" type="button" onclick="clearFormatting()" title="Clear Formatting (Remove Web Styles)"><i class="fas fa-remove-format"></i></button>
         </div>
     </header>
@@ -707,34 +778,69 @@
     <main class="viewport-scroll" id="viewport-scroll">
         <div class="canvas-assembly">
             
-            <!-- Left Source Canvas (Translation Mode) with PDF attachment -->
+            <!-- LEFT: Source Canvas / PDF Canvas -->
             <div class="doc-page d-none" id="source-page">
                 <div class="doc-page-header">
-                    <span><i class="fas fa-align-left me-1"></i> Source Script / Notes</span>
+                    <span id="source-panel-title"><i class="fas fa-align-left me-1"></i> Source Script / Notes</span>
                     <label class="d-flex align-items-center gap-1" style="cursor: pointer;">
                         <input type="checkbox" id="sync-scroll-check" checked> Sync Scroll
                     </label>
                 </div>
-                <div class="editable-surface" id="source-editor" contenteditable="true" data-placeholder="Paste reference script or notes here..."></div>
-                
-                <!-- PDF Attachment Panel (only visible in split mode) -->
-                <div class="pdf-attachment-panel" id="pdf-panel">
-                    <div class="pdf-header">
-                        <span><i class="fas fa-paperclip me-1"></i> PDF Attachments</span>
-                        <span id="pdf-count" style="font-weight:400;">0 files</span>
-                    </div>
-                    <div class="pdf-list" id="pdf-list"></div>
-                    <label class="pdf-upload-label">
-                        <i class="fas fa-plus"></i> Attach PDF
-                        <input type="file" id="pdf-upload" accept="application/pdf" multiple>
-                    </label>
-                    <div class="pdf-frame-container" id="pdf-frame-container">
-                        <iframe id="pdf-preview-frame" src="about:blank"></iframe>
+
+                <div class="doc-page-body">
+                    <!-- Editable source note -->
+                    <div class="editable-surface" id="source-editor" contenteditable="true" data-placeholder="Paste reference script or notes here..."></div>
+
+                    <!-- PDF Canvas (overlays the whole source body when active) -->
+                    <div class="pdf-canvas" id="pdf-canvas">
+                        <div class="pdf-toolbar">
+                            <div class="pdf-file-name" id="pdf-file-name">
+                                <i class="fas fa-file-pdf"></i>
+                                <span id="pdf-file-label">No PDF loaded</span>
+                            </div>
+                            <button class="pdf-tool-btn" onclick="triggerPdfUpload()" title="Attach another PDF">
+                                <i class="fas fa-plus"></i> Attach
+                            </button>
+                            <button class="pdf-tool-btn" id="pdf-prev-btn" onclick="prevPdf()" title="Previous PDF">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+                            <button class="pdf-tool-btn" id="pdf-next-btn" onclick="nextPdf()" title="Next PDF">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                            <button class="pdf-tool-btn" onclick="openPdfInNewTab()" title="Open in new tab">
+                                <i class="fas fa-arrow-up-right-from-square"></i>
+                            </button>
+                            <button class="pdf-tool-btn danger" onclick="clearAllPdfs()" title="Remove all PDFs">
+                                <i class="fas fa-trash-can"></i>
+                            </button>
+                            <button class="pdf-tool-btn" onclick="closePdfCanvas()" title="Close PDF reader">
+                                <i class="fas fa-xmark"></i>
+                            </button>
+                        </div>
+
+                        <div class="pdf-body" id="pdf-body">
+                            <iframe id="pdf-frame" src="about:blank" title="PDF Viewer"></iframe>
+
+                            <div class="pdf-dropzone" id="pdf-dropzone">
+                                <div class="dz-icon"><i class="fas fa-file-pdf"></i></div>
+                                <h4>Attach a PDF to reference</h4>
+                                <p>Drop a PDF here or click below. It will stay open on this side while you type Malayalam on the right.</p>
+                                <button class="dz-btn" onclick="triggerPdfUpload()">
+                                    <i class="fas fa-plus"></i> Choose PDF file
+                                </button>
+                                <p style="font-size:0.72rem;">Files are loaded locally in your browser — nothing is uploaded.</p>
+                            </div>
+                        </div>
+
+                        <div class="pdf-thumbs" id="pdf-thumbs"></div>
                     </div>
                 </div>
+
+                <!-- Hidden file input -->
+                <input type="file" id="pdf-hidden-input" accept="application/pdf" multiple style="display:none;">
             </div>
 
-            <!-- Right Target Canvas (Zen Focus) -->
+            <!-- RIGHT: Malayalam Target Canvas -->
             <div class="doc-page" id="target-page">
                 <div class="doc-page-header">
                     <span id="lang-status-badge"><i class="fas fa-pen-nib me-1"></i> Malayalam Canvas</span>
@@ -768,8 +874,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    // --- Core State ---
-    let archive = JSON.parse(localStorage.getItem('notato_v6_docs')) || [];
+    // ---------- CORE STATE ----------
+    let archive = JSON.parse(localStorage.getItem('notato_v7_docs')) || [];
     let currentId = null;
     let isSplitActive = false;
     let isManglishOn = true;
@@ -780,18 +886,18 @@
     let isRecordingVoice = false;
     let isSpeaking = false;
 
-    // --- Enhanced Transliteration Engine: LRU cache with prefetch + faster fallback ---
-    const translitCache = new Map();            // LRU-like (Map preserves insertion order)
+    // Faster transliteration cache
+    const translitCache = new Map();
     const MAX_CACHE_SIZE = 800;
-    const PREFETCH_LIMIT = 4;                   // prefetch next words
     let activeAbortController = null;
     let debounceTimer = null;
 
     // PDF state
-    let currentPdfFiles = [];                   // { name, url, size }
-    let pdfPreviewActive = false;
+    let pdfFiles = [];          // { name, url, size }
+    let activePdfIndex = -1;
+    let isPdfCanvasOpen = false;
 
-    // DOM refs
+    // DOM
     const targetEditor = document.getElementById('target-editor');
     const sourceEditor = document.getElementById('source-editor');
     const sourcePage = document.getElementById('source-page');
@@ -808,14 +914,16 @@
     const ttsBtn = document.getElementById('tts-btn');
 
     // PDF DOM
-    const pdfPanel = document.getElementById('pdf-panel');
-    const pdfList = document.getElementById('pdf-list');
-    const pdfUpload = document.getElementById('pdf-upload');
-    const pdfCount = document.getElementById('pdf-count');
-    const pdfFrameContainer = document.getElementById('pdf-frame-container');
-    const pdfPreviewFrame = document.getElementById('pdf-preview-frame');
+    const pdfCanvas = document.getElementById('pdf-canvas');
+    const pdfFrame = document.getElementById('pdf-frame');
+    const pdfDropzone = document.getElementById('pdf-dropzone');
+    const pdfFileLabel = document.getElementById('pdf-file-label');
+    const pdfThumbs = document.getElementById('pdf-thumbs');
+    const pdfHiddenInput = document.getElementById('pdf-hidden-input');
+    const pdfRibbonBtn = document.getElementById('pdf-ribbon-btn');
+    const sourcePanelTitle = document.getElementById('source-panel-title');
 
-    // --- Initialization ---
+    // ---------- INIT ----------
     function init() {
         if (archive.length === 0) {
             createNewDoc();
@@ -835,97 +943,218 @@
 
         initScrollSync();
         initSpeech();
-        initPdfHandlers();
-        renderPdfList();
+        initPdfSystem();
     }
 
-    // --- PDF Handling ---
-    function initPdfHandlers() {
-        pdfUpload.addEventListener('change', (e) => {
-            const files = Array.from(e.target.files);
-            files.forEach(file => {
-                if (file.type === 'application/pdf') {
-                    const url = URL.createObjectURL(file);
-                    currentPdfFiles.push({
-                        name: file.name,
-                        url: url,
-                        size: file.size
-                    });
-                }
+    // ---------- PDF SYSTEM ----------
+    function initPdfSystem() {
+        // Hidden input change
+        pdfHiddenInput.addEventListener('change', (e) => {
+            handlePdfFiles(Array.from(e.target.files));
+            e.target.value = '';
+        });
+
+        // Drop zone events
+        ['dragenter', 'dragover'].forEach(ev => {
+            pdfDropzone.addEventListener(ev, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                pdfDropzone.classList.add('dragover');
             });
-            renderPdfList();
-            e.target.value = ''; // reset
-            queueSave(); // save state
         });
-    }
 
-    function renderPdfList() {
-        pdfList.innerHTML = '';
-        pdfCount.innerText = `${currentPdfFiles.length} file${currentPdfFiles.length !== 1 ? 's' : ''}`;
-
-        currentPdfFiles.forEach((pdf, idx) => {
-            const item = document.createElement('div');
-            item.className = 'pdf-item';
-            item.innerHTML = `
-                <div class="pdf-name">
-                    <i class="fas fa-file-pdf" style="color: var(--danger);"></i>
-                    <span>${pdf.name}</span>
-                    <span style="font-size:0.7rem; color:var(--text-secondary);">(${formatFileSize(pdf.size)})</span>
-                </div>
-                <div class="pdf-actions">
-                    <button onclick="previewPdf(${idx})" title="Preview"><i class="fas fa-eye"></i></button>
-                    <button onclick="removePdf(${idx})" title="Remove"><i class="fas fa-trash-can"></i></button>
-                </div>
-            `;
-            pdfList.appendChild(item);
+        ['dragleave', 'drop'].forEach(ev => {
+            pdfDropzone.addEventListener(ev, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                pdfDropzone.classList.remove('dragover');
+            });
         });
-    }
 
-    function formatFileSize(bytes) {
-        if (bytes < 1024) return bytes + ' B';
-        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
-        return (bytes / 1048576).toFixed(1) + ' MB';
-    }
+        pdfDropzone.addEventListener('drop', (e) => {
+            const files = Array.from(e.dataTransfer.files).filter(f => f.type === 'application/pdf');
+            handlePdfFiles(files);
+        });
 
-    window.previewPdf = function(index) {
-        const pdf = currentPdfFiles[index];
-        if (!pdf) return;
-        if (pdfPreviewActive && pdfPreviewFrame.src === pdf.url) {
-            // toggle off
-            pdfFrameContainer.classList.remove('active');
-            pdfPreviewFrame.src = 'about:blank';
-            pdfPreviewActive = false;
-        } else {
-            pdfFrameContainer.classList.add('active');
-            pdfPreviewFrame.src = pdf.url;
-            pdfPreviewActive = true;
-        }
-    };
+        // Also allow dropping anywhere on the pdf-body
+        const pdfBody = document.getElementById('pdf-body');
+        ['dragenter', 'dragover'].forEach(ev => {
+            pdfBody.addEventListener(ev, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                pdfDropzone.classList.add('dragover');
+            });
+        });
+        ['dragleave', 'drop'].forEach(ev => {
+            pdfBody.addEventListener(ev, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                pdfDropzone.classList.remove('dragover');
+            });
+        });
+        pdfBody.addEventListener('drop', (e) => {
+            const files = Array.from(e.dataTransfer.files).filter(f => f.type === 'application/pdf');
+            handlePdfFiles(files);
+        });
 
-    window.removePdf = function(index) {
-        if (confirm('Remove this PDF attachment?')) {
-            URL.revokeObjectURL(currentPdfFiles[index].url);
-            currentPdfFiles.splice(index, 1);
-            renderPdfList();
-            // If preview was showing this file, hide preview
-            if (pdfPreviewActive) {
-                pdfFrameContainer.classList.remove('active');
-                pdfPreviewFrame.src = 'about:blank';
-                pdfPreviewActive = false;
+        // Keyboard shortcut for closing PDF: Esc
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isPdfCanvasOpen) {
+                // Only close if not typing in an editable
+                const tag = document.activeElement?.tagName;
+                if (tag !== 'INPUT' && tag !== 'TEXTAREA' && !document.activeElement?.isContentEditable) {
+                    closePdfCanvas();
+                }
             }
-            queueSave();
-        }
-    };
+        });
+    }
 
-    // --- Document CRUD ---
+    function handlePdfFiles(files) {
+        if (!files || files.length === 0) return;
+
+        const newPdfs = files.filter(f => f.type === 'application/pdf').map(file => ({
+            name: file.name,
+            url: URL.createObjectURL(file),
+            size: file.size
+        }));
+
+        if (newPdfs.length === 0) {
+            alert('Please choose PDF files only.');
+            return;
+        }
+
+        pdfFiles.push(...newPdfs);
+
+        // Auto-open canvas if not already
+        if (!isPdfCanvasOpen) {
+            openPdfCanvas();
+        }
+
+        // Set active to first newly added if none
+        if (activePdfIndex === -1) {
+            activePdfIndex = pdfFiles.length - newPdfs.length;
+        }
+
+        renderPdf();
+        updatePdfThumbs();
+        queueSave();
+    }
+
+    function triggerPdfUpload() {
+        pdfHiddenInput.click();
+    }
+
+    function renderPdf() {
+        if (pdfFiles.length === 0) {
+            // Empty state
+            pdfDropzone.style.display = 'flex';
+            pdfFrame.style.display = 'none';
+            pdfFileLabel.textContent = 'No PDF loaded';
+            pdfThumbs.classList.remove('visible');
+            updatePdfButtons();
+            return;
+        }
+
+        if (activePdfIndex < 0 || activePdfIndex >= pdfFiles.length) {
+            activePdfIndex = 0;
+        }
+
+        const pdf = pdfFiles[activePdfIndex];
+        pdfDropzone.style.display = 'none';
+        pdfFrame.style.display = 'block';
+        pdfFrame.src = pdf.url;
+        pdfFileLabel.textContent = pdf.name;
+        updatePdfButtons();
+    }
+
+    function updatePdfThumbs() {
+        if (pdfFiles.length <= 1) {
+            pdfThumbs.classList.remove('visible');
+            return;
+        }
+        pdfThumbs.classList.add('visible');
+        pdfThumbs.innerHTML = '';
+        pdfFiles.forEach((pdf, idx) => {
+            const t = document.createElement('div');
+            t.className = `pdf-thumb ${idx === activePdfIndex ? 'active' : ''}`;
+            t.innerHTML = `<i class="fas fa-file-pdf"></i><span>${pdf.name}</span>`;
+            t.onclick = () => {
+                activePdfIndex = idx;
+                renderPdf();
+                updatePdfThumbs();
+            };
+            pdfThumbs.appendChild(t);
+        });
+    }
+
+    function updatePdfButtons() {
+        const hasMultiple = pdfFiles.length > 1;
+        document.getElementById('pdf-prev-btn').style.display = hasMultiple ? 'flex' : 'none';
+        document.getElementById('pdf-next-btn').style.display = hasMultiple ? 'flex' : 'none';
+    }
+
+    function prevPdf() {
+        if (pdfFiles.length <= 1) return;
+        activePdfIndex = (activePdfIndex - 1 + pdfFiles.length) % pdfFiles.length;
+        renderPdf();
+        updatePdfThumbs();
+    }
+
+    function nextPdf() {
+        if (pdfFiles.length <= 1) return;
+        activePdfIndex = (activePdfIndex + 1) % pdfFiles.length;
+        renderPdf();
+        updatePdfThumbs();
+    }
+
+    function openPdfInNewTab() {
+        if (activePdfIndex < 0 || pdfFiles.length === 0) return;
+        window.open(pdfFiles[activePdfIndex].url, '_blank');
+    }
+
+    function clearAllPdfs() {
+        if (pdfFiles.length === 0) return;
+        if (!confirm('Remove all attached PDFs from this panel?')) return;
+        pdfFiles.forEach(p => URL.revokeObjectURL(p.url));
+        pdfFiles = [];
+        activePdfIndex = -1;
+        renderPdf();
+        updatePdfThumbs();
+        queueSave();
+    }
+
+    function openPdfCanvas() {
+        // Ensure split view is on
+        if (!isSplitActive) {
+            toggleSplitCanvas();
+        }
+        isPdfCanvasOpen = true;
+        pdfCanvas.classList.add('active');
+        pdfRibbonBtn.classList.add('active');
+        sourcePanelTitle.innerHTML = '<i class="fas fa-file-pdf me-1" style="color:var(--danger);"></i> PDF Reference';
+        renderPdf();
+        updatePdfThumbs();
+    }
+
+    function closePdfCanvas() {
+        isPdfCanvasOpen = false;
+        pdfCanvas.classList.remove('active');
+        pdfRibbonBtn.classList.remove('active');
+        sourcePanelTitle.innerHTML = '<i class="fas fa-align-left me-1"></i> Source Script / Notes';
+    }
+
+    function togglePdfCanvas() {
+        if (isPdfCanvasOpen) closePdfCanvas();
+        else openPdfCanvas();
+    }
+
+    // ---------- DOCUMENT CRUD ----------
     function createNewDoc() {
         const doc = {
             id: 'doc_' + Date.now(),
             title: '',
             sourceText: '',
             targetText: '',
-            pdfFiles: [],            // store only metadata + data URLs? we store blob URLs, they are ephemeral; better store names
-            pdfMeta: [],             // store names only
             updatedAt: Date.now()
         };
         archive.unshift(doc);
@@ -943,28 +1172,14 @@
         targetEditor.innerHTML = item.targetText || '';
         sourceEditor.innerHTML = item.sourceText || '';
 
-        // Restore PDF metadata (names only, no actual files)
-        if (item.pdfMeta && Array.isArray(item.pdfMeta)) {
-            // we cannot restore blob urls, so show a message or skip
-            // we'll just clear and show a note
-            currentPdfFiles = [];
-            if (item.pdfMeta.length > 0) {
-                // We can't restore actual files, but we can show they existed
-                // For simplicity we just reset
-                item.pdfMeta = [];
-            }
-        } else {
-            currentPdfFiles = [];
+        // Clear PDFs when switching docs (blob URLs are per-session)
+        if (pdfFiles.length > 0) {
+            pdfFiles.forEach(p => URL.revokeObjectURL(p.url));
         }
-        // Also clear any previous blob URLs
-        currentPdfFiles.forEach(pdf => URL.revokeObjectURL(pdf.url));
-        currentPdfFiles = [];
-        renderPdfList();
-        if (pdfPreviewActive) {
-            pdfFrameContainer.classList.remove('active');
-            pdfPreviewFrame.src = 'about:blank';
-            pdfPreviewActive = false;
-        }
+        pdfFiles = [];
+        activePdfIndex = -1;
+        renderPdf();
+        updatePdfThumbs();
 
         refreshMetrics();
         hideSuggestions();
@@ -988,9 +1203,6 @@
                 doc.targetText = targetEditor.innerHTML;
                 doc.sourceText = sourceEditor.innerHTML;
                 doc.updatedAt = Date.now();
-                // Save PDF metadata (names only, not urls)
-                doc.pdfMeta = currentPdfFiles.map(p => ({ name: p.name, size: p.size }));
-                
                 archive = [doc, ...archive.filter(d => d.id !== currentId)];
                 syncStorage();
                 saveStatus.innerText = 'Saved';
@@ -999,7 +1211,7 @@
     }
 
     function syncStorage() {
-        localStorage.setItem('notato_v6_docs', JSON.stringify(archive));
+        localStorage.setItem('notato_v7_docs', JSON.stringify(archive));
     }
 
     function handleCleanPaste(e) {
@@ -1072,7 +1284,6 @@
     function deleteDoc(id, e) {
         e.stopPropagation();
         if (confirm("Permanently delete this note?")) {
-            // Revoke any blob URLs associated with this doc? They are in memory only, so fine.
             archive = archive.filter(d => d.id !== id);
             syncStorage();
             if (archive.length === 0) createNewDoc();
@@ -1084,42 +1295,28 @@
         }
     }
 
-    /* --- Optimized Transliteration Engine ---
-       - Cache-first, LRU eviction
-       - Prefetch next suggestions using previous token? (simple: prefetch same word's results while still typing)
-       - 70ms debounce for faster response
-       - Fallback to local approximations if API fails? (not needed, just faster)
-    */
+    // ---------- FAST TRANSLITERATION ----------
     async function fetchPhoneticList(token) {
         const cleanToken = token.trim().toLowerCase();
         if (!cleanToken) return [];
 
-        // LRU: check cache and move to end (most recent)
         if (translitCache.has(cleanToken)) {
             const val = translitCache.get(cleanToken);
             translitCache.delete(cleanToken);
-            translitCache.set(cleanToken, val);   // refresh
+            translitCache.set(cleanToken, val);
             return val;
         }
 
-        // Abort previous pending request
-        if (activeAbortController) {
-            activeAbortController.abort();
-        }
+        if (activeAbortController) activeAbortController.abort();
         activeAbortController = new AbortController();
 
         try {
             const url = `https://inputtools.google.com/request?text=${encodeURIComponent(cleanToken)}&itc=ml-t-i0-und&num=7&cp=0&cs=1&ie=utf-8&oe=utf-8`;
-            const res = await fetch(url, { 
-                signal: activeAbortController.signal,
-                // Faster: avoid caching issues
-                cache: 'no-cache' 
-            });
+            const res = await fetch(url, { signal: activeAbortController.signal, cache: 'no-cache' });
             const data = await res.json();
 
             if (data[0] === 'SUCCESS' && data[1] && data[1][0]) {
                 const results = data[1][0][1];
-                // LRU eviction
                 if (translitCache.size >= MAX_CACHE_SIZE) {
                     const firstKey = translitCache.keys().next().value;
                     translitCache.delete(firstKey);
@@ -1129,7 +1326,7 @@
             }
             return [];
         } catch (err) {
-            if (err.name === 'AbortError') return [];  // ignore aborts
+            if (err.name === 'AbortError') return [];
             return [];
         }
     }
@@ -1201,7 +1398,6 @@
         suggFloat.style.display = 'flex';
     }
 
-    // --- Input Listener: faster (70ms debounce) and prefetch cached results ---
     targetEditor.addEventListener('input', () => {
         queueSave();
         refreshMetrics();
@@ -1215,12 +1411,10 @@
         }
 
         const cleanWord = token.word.toLowerCase();
-        // instant from cache
         if (translitCache.has(cleanWord)) {
             suggestionArray = translitCache.get(cleanWord);
             activeSuggIdx = suggestionArray.length > 0 ? 0 : -1;
             renderFloatSuggestions();
-            // Also prefetch a possible next word? Skip.
             return;
         }
 
@@ -1234,7 +1428,7 @@
             } else {
                 hideSuggestions();
             }
-        }, 70);  // faster debounce
+        }, 70);
     });
 
     targetEditor.addEventListener('keydown', (e) => {
@@ -1292,11 +1486,13 @@
         sourcePage.classList.toggle('d-none', !isSplitActive);
         viewportScroll.classList.toggle('split-on', isSplitActive);
         document.getElementById('split-btn').classList.toggle('active', isSplitActive);
-        // When split is turned off, hide pdf preview to avoid confusion
-        if (!isSplitActive) {
-            pdfFrameContainer.classList.remove('active');
-            pdfPreviewFrame.src = 'about:blank';
-            pdfPreviewActive = false;
+
+        // If split turned off while PDF canvas open, close it gracefully
+        if (!isSplitActive && isPdfCanvasOpen) {
+            isPdfCanvasOpen = false;
+            pdfCanvas.classList.remove('active');
+            pdfRibbonBtn.classList.remove('active');
+            sourcePanelTitle.innerHTML = '<i class="fas fa-align-left me-1"></i> Source Script / Notes';
         }
     }
 
@@ -1420,18 +1616,6 @@
         setTimeout(() => saveStatus.innerText = 'Saved', 1500);
     }
 
-    // Override loadCurrentDoc to reset PDF preview when doc changes
-    const originalLoadCurrentDoc = loadCurrentDoc;
-    loadCurrentDoc = function() {
-        originalLoadCurrentDoc.call(this);
-        if (pdfPreviewActive) {
-            pdfFrameContainer.classList.remove('active');
-            pdfPreviewFrame.src = 'about:blank';
-            pdfPreviewActive = false;
-        }
-    };
-
-    // Start the app
     init();
 </script>
 </body>
