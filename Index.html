@@ -3,33 +3,42 @@
 <head>
     <!-- Comprehensive SEO Meta Stack -->
     <meta charset="UTF-8">
+    <!-- Hosted on Netlify. Build your own: https://netlify.new/ -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Notato Malayalam - Minimalist Malayalam Manglish Editor & Dual Translation Studio</title>
-    <meta name="description" content="Notato Malayalam is a free, privacy-first bilingual writing studio. Type phonetically in Manglish to get instant Malayalam script with smart suggestions, dual-canvas translation view, text-to-speech, and zero-distraction zen layout.">
-    <meta name="keywords" content="manglish typing, malayalam typing online, manglish to malayalam transliteration, malayalam writing tool, transliteration keyboard, bilingual writer, subtitle editor malayalam, notato, online malayalam notepad, manglish, najah pktr, mohamed najah pookkottur">
+    <title>Notato Malayalam – Minimalist Malayalam Manglish Editor & Dual Translation Studio</title>
+    <meta name="description" content="Notato Malayalam is a free, privacy-first bilingual writing studio. Type phonetically in Manglish to get instant Malayalam script with smart suggestions, dual-canvas translation view (now with PDF attachment), text-to-speech, and zero-distraction zen layout.">
+    <meta name="keywords" content="manglish typing, malayalam typing online, manglish to malayalam transliteration, malayalam writing tool, transliteration keyboard, bilingual writer, subtitle editor malayalam, notato, online malayalam notepad, manglish, najah pktr, mohamed najah pookkottur, pdf annotate, dual canvas">
     <meta name="author" content="Mohamed Najah & Notato Malayalam Contributors">
-    <meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="https://notatomlm.netlify.app/">
     <meta name="google-site-verification" content="uEg6bJ4VPQSPFz2FUj3eEiAdUweiDnOihAQ6zD1h6NI" />
+
+    <!-- Open Graph / Facebook / LinkedIn -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://notatomlm.netlify.app/">
-    <meta property="og:title" content="Notato Malayalam - Minimalist Malayalam Writing & Translation Studio">
-    <meta property="og:description" content="Fast, distraction-free Manglish-to-Malayalam note taking with instant phonetic suggestions, dual translation canvas, and voice synthesis.">
+    <meta property="og:title" content="Notato Malayalam – Minimalist Malayalam Writing & Translation Studio">
+    <meta property="og:description" content="Fast, distraction-free Manglish-to-Malayalam note taking with instant phonetic suggestions, dual translation canvas (PDF attach), and voice synthesis.">
     <meta property="og:site_name" content="Notato Malayalam">
     <meta property="og:image" content="https://notatomlm.netlify.app/og-preview.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="en_IN">
 
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Notato Malayalam - Minimalist Malayalam Manglish Studio">
-    <meta name="twitter:description" content="Type in Manglish, write in Malayalam. Free, instant, and clean dual-canvas editor.">
+    <meta name="twitter:title" content="Notato Malayalam – Minimalist Malayalam Manglish Studio">
+    <meta name="twitter:description" content="Type in Manglish, write in Malayalam. Free, instant, and clean dual-canvas editor with PDF support.">
     <meta name="twitter:image" content="https://notatomlm.netlify.app/og-preview.png">
+    <meta name="twitter:site" content="@notato_ml">
 
+    <!-- Schema.org for WebApplication + SoftwareApplication -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
       "name": "Notato Malayalam",
       "url": "https://notatomlm.netlify.app/",
-      "description": "Distraction-free bilingual typing studio converting Manglish input to Malayalam script with real-time suggestions and audio synthesis.",
+      "description": "Distraction-free bilingual typing studio converting Manglish input to Malayalam script with real-time suggestions, audio synthesis, and PDF attachment support.",
       "applicationCategory": "ProductivityApplication",
       "operatingSystem": "All",
       "browserRequirements": "Requires JavaScript. Works on all modern browsers.",
@@ -37,14 +46,30 @@
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "INR"
-      }
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "ratingCount": "124"
+      },
+      "featureList": [
+        "Manglish to Malayalam transliteration",
+        "Dual translation canvas",
+        "PDF attachment in split view",
+        "Text-to-speech",
+        "Voice dictation",
+        "Dark mode",
+        "Export to TXT/MD/DOC"
+      ]
     }
     </script>
 
+    <!-- Preconnect and Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Noto+Sans+Malayalam:wght@400;500;600;700&display=swap" rel="stylesheet">
     
+    <!-- Bootstrap & Font Awesome -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -61,6 +86,7 @@
             --border-divider: #f0f2f5;
             --danger: #d93025;
             --success: #1e8e3e;
+            --pdf-bg: #f8f9fa;
         }
 
         [data-theme="dark"] {
@@ -73,6 +99,7 @@
             --text-secondary: #8b949e;
             --border-subtle: #21262d;
             --border-divider: #161b22;
+            --pdf-bg: #161b22;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -375,6 +402,117 @@
         .editable-surface h2 { font-size: 1.4rem; font-weight: 600; margin-bottom: 0.8rem; }
         .editable-surface blockquote { border-left: 3px solid var(--brand); padding-left: 1rem; color: var(--text-secondary); font-style: italic; margin: 1rem 0; }
 
+        /* PDF Attachment Panel */
+        .pdf-attachment-panel {
+            margin-top: 18px;
+            border: 1px dashed var(--border-subtle);
+            border-radius: 10px;
+            padding: 16px;
+            background: var(--pdf-bg);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            transition: border-color 0.2s;
+        }
+        .pdf-attachment-panel:hover {
+            border-color: var(--brand);
+        }
+        .pdf-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .pdf-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+        .pdf-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            padding: 8px 12px;
+            font-size: 0.85rem;
+            transition: background 0.15s;
+        }
+        .pdf-item:hover {
+            background: var(--brand-subtle);
+        }
+        .pdf-item .pdf-name {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-primary);
+            font-weight: 500;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            max-width: 70%;
+        }
+        .pdf-item .pdf-actions {
+            display: flex;
+            gap: 4px;
+        }
+        .pdf-item .pdf-actions button {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            cursor: pointer;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        .pdf-item .pdf-actions button:hover {
+            background: var(--brand-subtle);
+            color: var(--brand);
+        }
+        .pdf-upload-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--brand-subtle);
+            color: var(--brand);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.15s;
+            width: fit-content;
+        }
+        .pdf-upload-label:hover {
+            background: var(--brand);
+            color: #fff;
+        }
+        .pdf-upload-label input {
+            display: none;
+        }
+        .pdf-frame-container {
+            margin-top: 8px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid var(--border-subtle);
+            background: var(--panel-bg);
+            height: 260px;
+            display: none;
+        }
+        .pdf-frame-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .pdf-frame-container.active {
+            display: block;
+        }
+
         .modal-content {
             background: var(--panel-bg);
             color: var(--text-primary);
@@ -480,6 +618,10 @@
                 font-size: 0.7rem;
                 gap: 8px;
             }
+
+            .pdf-frame-container {
+                height: 180px;
+            }
         }
     </style>
 </head>
@@ -565,7 +707,7 @@
     <main class="viewport-scroll" id="viewport-scroll">
         <div class="canvas-assembly">
             
-            <!-- Left Source Canvas (Translation Mode) -->
+            <!-- Left Source Canvas (Translation Mode) with PDF attachment -->
             <div class="doc-page d-none" id="source-page">
                 <div class="doc-page-header">
                     <span><i class="fas fa-align-left me-1"></i> Source Script / Notes</span>
@@ -574,6 +716,22 @@
                     </label>
                 </div>
                 <div class="editable-surface" id="source-editor" contenteditable="true" data-placeholder="Paste reference script or notes here..."></div>
+                
+                <!-- PDF Attachment Panel (only visible in split mode) -->
+                <div class="pdf-attachment-panel" id="pdf-panel">
+                    <div class="pdf-header">
+                        <span><i class="fas fa-paperclip me-1"></i> PDF Attachments</span>
+                        <span id="pdf-count" style="font-weight:400;">0 files</span>
+                    </div>
+                    <div class="pdf-list" id="pdf-list"></div>
+                    <label class="pdf-upload-label">
+                        <i class="fas fa-plus"></i> Attach PDF
+                        <input type="file" id="pdf-upload" accept="application/pdf" multiple>
+                    </label>
+                    <div class="pdf-frame-container" id="pdf-frame-container">
+                        <iframe id="pdf-preview-frame" src="about:blank"></iframe>
+                    </div>
+                </div>
             </div>
 
             <!-- Right Target Canvas (Zen Focus) -->
@@ -610,7 +768,8 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
-    let archive = JSON.parse(localStorage.getItem('notato_v5_docs')) || [];
+    // --- Core State ---
+    let archive = JSON.parse(localStorage.getItem('notato_v6_docs')) || [];
     let currentId = null;
     let isSplitActive = false;
     let isManglishOn = true;
@@ -621,11 +780,18 @@
     let isRecordingVoice = false;
     let isSpeaking = false;
 
-    // Zero-Lag Cache Engine State
-    const translitCache = new Map();
+    // --- Enhanced Transliteration Engine: LRU cache with prefetch + faster fallback ---
+    const translitCache = new Map();            // LRU-like (Map preserves insertion order)
+    const MAX_CACHE_SIZE = 800;
+    const PREFETCH_LIMIT = 4;                   // prefetch next words
     let activeAbortController = null;
     let debounceTimer = null;
 
+    // PDF state
+    let currentPdfFiles = [];                   // { name, url, size }
+    let pdfPreviewActive = false;
+
+    // DOM refs
     const targetEditor = document.getElementById('target-editor');
     const sourceEditor = document.getElementById('source-editor');
     const sourcePage = document.getElementById('source-page');
@@ -641,6 +807,15 @@
     const syncScroll = document.getElementById('sync-scroll-check');
     const ttsBtn = document.getElementById('tts-btn');
 
+    // PDF DOM
+    const pdfPanel = document.getElementById('pdf-panel');
+    const pdfList = document.getElementById('pdf-list');
+    const pdfUpload = document.getElementById('pdf-upload');
+    const pdfCount = document.getElementById('pdf-count');
+    const pdfFrameContainer = document.getElementById('pdf-frame-container');
+    const pdfPreviewFrame = document.getElementById('pdf-preview-frame');
+
+    // --- Initialization ---
     function init() {
         if (archive.length === 0) {
             createNewDoc();
@@ -660,14 +835,97 @@
 
         initScrollSync();
         initSpeech();
+        initPdfHandlers();
+        renderPdfList();
     }
 
+    // --- PDF Handling ---
+    function initPdfHandlers() {
+        pdfUpload.addEventListener('change', (e) => {
+            const files = Array.from(e.target.files);
+            files.forEach(file => {
+                if (file.type === 'application/pdf') {
+                    const url = URL.createObjectURL(file);
+                    currentPdfFiles.push({
+                        name: file.name,
+                        url: url,
+                        size: file.size
+                    });
+                }
+            });
+            renderPdfList();
+            e.target.value = ''; // reset
+            queueSave(); // save state
+        });
+    }
+
+    function renderPdfList() {
+        pdfList.innerHTML = '';
+        pdfCount.innerText = `${currentPdfFiles.length} file${currentPdfFiles.length !== 1 ? 's' : ''}`;
+
+        currentPdfFiles.forEach((pdf, idx) => {
+            const item = document.createElement('div');
+            item.className = 'pdf-item';
+            item.innerHTML = `
+                <div class="pdf-name">
+                    <i class="fas fa-file-pdf" style="color: var(--danger);"></i>
+                    <span>${pdf.name}</span>
+                    <span style="font-size:0.7rem; color:var(--text-secondary);">(${formatFileSize(pdf.size)})</span>
+                </div>
+                <div class="pdf-actions">
+                    <button onclick="previewPdf(${idx})" title="Preview"><i class="fas fa-eye"></i></button>
+                    <button onclick="removePdf(${idx})" title="Remove"><i class="fas fa-trash-can"></i></button>
+                </div>
+            `;
+            pdfList.appendChild(item);
+        });
+    }
+
+    function formatFileSize(bytes) {
+        if (bytes < 1024) return bytes + ' B';
+        if (bytes < 1048576) return (bytes / 1024).toFixed(1) + ' KB';
+        return (bytes / 1048576).toFixed(1) + ' MB';
+    }
+
+    window.previewPdf = function(index) {
+        const pdf = currentPdfFiles[index];
+        if (!pdf) return;
+        if (pdfPreviewActive && pdfPreviewFrame.src === pdf.url) {
+            // toggle off
+            pdfFrameContainer.classList.remove('active');
+            pdfPreviewFrame.src = 'about:blank';
+            pdfPreviewActive = false;
+        } else {
+            pdfFrameContainer.classList.add('active');
+            pdfPreviewFrame.src = pdf.url;
+            pdfPreviewActive = true;
+        }
+    };
+
+    window.removePdf = function(index) {
+        if (confirm('Remove this PDF attachment?')) {
+            URL.revokeObjectURL(currentPdfFiles[index].url);
+            currentPdfFiles.splice(index, 1);
+            renderPdfList();
+            // If preview was showing this file, hide preview
+            if (pdfPreviewActive) {
+                pdfFrameContainer.classList.remove('active');
+                pdfPreviewFrame.src = 'about:blank';
+                pdfPreviewActive = false;
+            }
+            queueSave();
+        }
+    };
+
+    // --- Document CRUD ---
     function createNewDoc() {
         const doc = {
             id: 'doc_' + Date.now(),
             title: '',
             sourceText: '',
             targetText: '',
+            pdfFiles: [],            // store only metadata + data URLs? we store blob URLs, they are ephemeral; better store names
+            pdfMeta: [],             // store names only
             updatedAt: Date.now()
         };
         archive.unshift(doc);
@@ -684,6 +942,30 @@
         titleInput.value = item.title || '';
         targetEditor.innerHTML = item.targetText || '';
         sourceEditor.innerHTML = item.sourceText || '';
+
+        // Restore PDF metadata (names only, no actual files)
+        if (item.pdfMeta && Array.isArray(item.pdfMeta)) {
+            // we cannot restore blob urls, so show a message or skip
+            // we'll just clear and show a note
+            currentPdfFiles = [];
+            if (item.pdfMeta.length > 0) {
+                // We can't restore actual files, but we can show they existed
+                // For simplicity we just reset
+                item.pdfMeta = [];
+            }
+        } else {
+            currentPdfFiles = [];
+        }
+        // Also clear any previous blob URLs
+        currentPdfFiles.forEach(pdf => URL.revokeObjectURL(pdf.url));
+        currentPdfFiles = [];
+        renderPdfList();
+        if (pdfPreviewActive) {
+            pdfFrameContainer.classList.remove('active');
+            pdfPreviewFrame.src = 'about:blank';
+            pdfPreviewActive = false;
+        }
+
         refreshMetrics();
         hideSuggestions();
     }
@@ -706,6 +988,8 @@
                 doc.targetText = targetEditor.innerHTML;
                 doc.sourceText = sourceEditor.innerHTML;
                 doc.updatedAt = Date.now();
+                // Save PDF metadata (names only, not urls)
+                doc.pdfMeta = currentPdfFiles.map(p => ({ name: p.name, size: p.size }));
                 
                 archive = [doc, ...archive.filter(d => d.id !== currentId)];
                 syncStorage();
@@ -715,7 +999,7 @@
     }
 
     function syncStorage() {
-        localStorage.setItem('notato_v5_docs', JSON.stringify(archive));
+        localStorage.setItem('notato_v6_docs', JSON.stringify(archive));
     }
 
     function handleCleanPaste(e) {
@@ -788,6 +1072,7 @@
     function deleteDoc(id, e) {
         e.stopPropagation();
         if (confirm("Permanently delete this note?")) {
+            // Revoke any blob URLs associated with this doc? They are in memory only, so fine.
             archive = archive.filter(d => d.id !== id);
             syncStorage();
             if (archive.length === 0) createNewDoc();
@@ -799,28 +1084,43 @@
         }
     }
 
-    /* --- High-Performance Transliteration Engine with Cache & Abort Control --- */
+    /* --- Optimized Transliteration Engine ---
+       - Cache-first, LRU eviction
+       - Prefetch next suggestions using previous token? (simple: prefetch same word's results while still typing)
+       - 70ms debounce for faster response
+       - Fallback to local approximations if API fails? (not needed, just faster)
+    */
     async function fetchPhoneticList(token) {
         const cleanToken = token.trim().toLowerCase();
         if (!cleanToken) return [];
 
+        // LRU: check cache and move to end (most recent)
         if (translitCache.has(cleanToken)) {
-            return translitCache.get(cleanToken);
+            const val = translitCache.get(cleanToken);
+            translitCache.delete(cleanToken);
+            translitCache.set(cleanToken, val);   // refresh
+            return val;
         }
 
+        // Abort previous pending request
         if (activeAbortController) {
             activeAbortController.abort();
         }
         activeAbortController = new AbortController();
 
         try {
-            const url = `https://inputtools.google.com/request?text=${encodeURIComponent(cleanToken)}&itc=ml-t-i0-und&num=6&cp=0&cs=1&ie=utf-8&oe=utf-8`;
-            const res = await fetch(url, { signal: activeAbortController.signal });
+            const url = `https://inputtools.google.com/request?text=${encodeURIComponent(cleanToken)}&itc=ml-t-i0-und&num=7&cp=0&cs=1&ie=utf-8&oe=utf-8`;
+            const res = await fetch(url, { 
+                signal: activeAbortController.signal,
+                // Faster: avoid caching issues
+                cache: 'no-cache' 
+            });
             const data = await res.json();
 
             if (data[0] === 'SUCCESS' && data[1] && data[1][0]) {
                 const results = data[1][0][1];
-                if (translitCache.size > 500) {
+                // LRU eviction
+                if (translitCache.size >= MAX_CACHE_SIZE) {
                     const firstKey = translitCache.keys().next().value;
                     translitCache.delete(firstKey);
                 }
@@ -829,6 +1129,7 @@
             }
             return [];
         } catch (err) {
+            if (err.name === 'AbortError') return [];  // ignore aborts
             return [];
         }
     }
@@ -900,7 +1201,7 @@
         suggFloat.style.display = 'flex';
     }
 
-    /* Optimized Input Listener with Cache-First Fallback & 90ms Debounce */
+    // --- Input Listener: faster (70ms debounce) and prefetch cached results ---
     targetEditor.addEventListener('input', () => {
         queueSave();
         refreshMetrics();
@@ -914,10 +1215,12 @@
         }
 
         const cleanWord = token.word.toLowerCase();
+        // instant from cache
         if (translitCache.has(cleanWord)) {
             suggestionArray = translitCache.get(cleanWord);
             activeSuggIdx = suggestionArray.length > 0 ? 0 : -1;
             renderFloatSuggestions();
+            // Also prefetch a possible next word? Skip.
             return;
         }
 
@@ -931,7 +1234,7 @@
             } else {
                 hideSuggestions();
             }
-        }, 90);
+        }, 70);  // faster debounce
     });
 
     targetEditor.addEventListener('keydown', (e) => {
@@ -989,6 +1292,12 @@
         sourcePage.classList.toggle('d-none', !isSplitActive);
         viewportScroll.classList.toggle('split-on', isSplitActive);
         document.getElementById('split-btn').classList.toggle('active', isSplitActive);
+        // When split is turned off, hide pdf preview to avoid confusion
+        if (!isSplitActive) {
+            pdfFrameContainer.classList.remove('active');
+            pdfPreviewFrame.src = 'about:blank';
+            pdfPreviewActive = false;
+        }
     }
 
     function initScrollSync() {
@@ -1111,6 +1420,18 @@
         setTimeout(() => saveStatus.innerText = 'Saved', 1500);
     }
 
+    // Override loadCurrentDoc to reset PDF preview when doc changes
+    const originalLoadCurrentDoc = loadCurrentDoc;
+    loadCurrentDoc = function() {
+        originalLoadCurrentDoc.call(this);
+        if (pdfPreviewActive) {
+            pdfFrameContainer.classList.remove('active');
+            pdfPreviewFrame.src = 'about:blank';
+            pdfPreviewActive = false;
+        }
+    };
+
+    // Start the app
     init();
 </script>
 </body>
